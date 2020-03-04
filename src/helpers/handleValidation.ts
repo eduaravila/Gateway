@@ -20,7 +20,8 @@ const NO_KEYS = [
   "NewRarity",
   "ModifyRarity",
   "Raritys",
-  "DeleteRarity"
+  "DeleteRarity",
+  "Wallets"
 ];
 
 const actionIsPublic = ({ query }) =>

@@ -20,7 +20,8 @@ const PORT: string = process.env.PORT || "3000";
         { name: "Challenge", url: "http://localhost:3001/graphql" },
         { name: "Arena", url: "http://localhost:3003/graphql" },
         { name: "Comentary", url: "http://localhost:3004/graphql" },
-        { name: "Wallet", url: "http://localhost:3005/graphql" }
+        { name: "Wallet", url: "http://localhost:3005/graphql" },
+        { name: "History", url: "http://localhost:3006/graphql" },
         // more services
       ],
       buildService({ name, url }) {
