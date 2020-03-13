@@ -1,3 +1,6 @@
+//!!
+//!! Eduardo avila 2020 21
+//!!
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import express_user_ip from "express-ip";
@@ -31,7 +34,7 @@ if (cluster.isWorker) {
           { name: "Comentary", url: "http://localhost:3004/graphql" },
           { name: "Wallet", url: "http://localhost:3005/graphql" },
           { name: "History", url: "http://localhost:3006/graphql" }
-          // more services
+          // * ecolote services
         ],
         buildService({ name, url }) {
           return new RemoteGraphQLDataSource({
