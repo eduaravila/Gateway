@@ -146,7 +146,9 @@ if (cluster.isWorker) {
 
           err.extensions.variables = null;
           return err;
-        }
+        },
+        playground: true,
+        introspection: true
       });
       // The GraphQL endpoint
 
