@@ -28,12 +28,48 @@ if (cluster.isWorker) {
     try {
       const gateway = new ApolloGateway({
         serviceList: [
-          { name: "Access", url: "http://localhost:3000/graphql" },
-          { name: "Challenge", url: "http://localhost:3001/graphql" },
-          { name: "Arena", url: "http://localhost:3003/graphql" },
-          { name: "Comentary", url: "http://localhost:3004/graphql" },
-          { name: "Wallet", url: "http://localhost:3005/graphql" },
-          { name: "History", url: "http://localhost:3006/graphql" }
+          {
+            name: "Access",
+            url:
+              process.env.Access == "false"
+                ? "http://localhost:3000/graphql"
+                : "https://ecolote-access.herokuapp.com/graphql"
+          },
+          {
+            name: "Challenge",
+            url:
+              process.env.Challenge == "false"
+                ? "http://localhost:3001/graphql"
+                : "https://ecolote-challenge.herokuapp.com/graphql"
+          },
+          {
+            name: "Arena",
+            url:
+              process.env.Arena == "false"
+                ? "http://localhost:3003/graphql"
+                : "https://ecolote-arena.herokuapp.com/graphql"
+          },
+          {
+            name: "Comentary",
+            url:
+              process.env.Comentary == "false"
+                ? "http://localhost:3004/graphql"
+                : "https://ecolote-commentary.herokuapp.com/graphql"
+          },
+          {
+            name: "Wallet",
+            url:
+              process.env.Wallet == "false"
+                ? "http://localhost:3005/graphql"
+                : "https://ecolote-wallet.herokuapp.com/graphql"
+          },
+          {
+            name: "History",
+            url:
+              process.env.History == "false"
+                ? "http://localhost:3006/graphql"
+                : "https://ecolote-history.herokuapp.com/graphql"
+          }
           // * ecolote services
         ],
         buildService({ name, url }) {

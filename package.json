@@ -4,8 +4,11 @@
   "description": "Gateway ecolote microservice",
   "main": "index.js",
   "scripts": {
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
     "test": "jest --setupFiles dotenv/config --forceExit --detectOpenHandles",
-    "dev": "concurrently -k \"tsc --watch\" \"nodemon -r dotenv/config ./dist/src/index.js dotenv_config_path=./.env.dev\""
+    "dev": "concurrently -k \"tsc --watch\" \"nodemon -r dotenv/config ./dist/src/index.js dotenv_config_path=./.env.dev\"",
+    "start": "node ./dist/src/index.js"
   },
   "author": "Eduardo Avila",
   "license": "ISC",
