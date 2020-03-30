@@ -27,16 +27,16 @@ const NO_KEYS = [
   "ModifyBadge"
 ];
 
-const actionIsPublic = ({ query }) =>
+const actionIsPublic = ({ query }: any) =>
   PUBLIC_ACTIONS.some(action => query.includes(action));
 
-const actionIsNoKeys = ({ query }) =>
+const actionIsNoKeys = ({ query }: any) =>
   NO_KEYS.some(action => query.includes(action));
 
 const isIntrospectionQuery = ({ operationName }: any) =>
   operationName === "IntrospectionQuery";
 
-const shouldAuthenticate = body =>
+const shouldAuthenticate = (body: any) =>
   !isIntrospectionQuery(body) && !actionIsPublic(body);
 
 export const handleAuth = async (context: any) => {
@@ -49,7 +49,7 @@ export const handleAuth = async (context: any) => {
   } else if (shouldAuthenticate(req.body)) {
     let keyId = (await jwt.decode(req.headers.token, {
       complete: true
-    })) as object;
+    })) as any;
     let publicKey = await getPublicKey(keyId.header.kid);
     return {
       publicKey: publicKey.publicKey,
